@@ -1,5 +1,25 @@
 # Student-Placement-Prediction
-This project is a machine learning-based web application built using Streamlit that predicts whether a student is likely to be placed or not based on key academic and skill-related features.  The system uses multiple classification algorithms such as:  Logistic Regression Decision Tree Random Forest Support Vector Machine 
+This project is a machine learning-based web application built using Streamlit that predicts whether a student is likely to be placed or not based on key academic and skill-related features.
+
+The system uses multiple classification algorithms such as:
+
+Logistic Regression
+
+Decision Tree
+
+Random Forest
+
+Support Vector Machine (SVM)
+
+K-Nearest Neighbors (KNN)
+
+Naive Bayes
+
+Gradient Boosting
+
+Users can input student details like CGPA, skill level, and number of internships, and the model provides a real-time prediction.
+
+The application also allows dynamic model selection, enabling users to compare performance across different algorithms.
 
 
 
@@ -7,7 +27,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-# ML Models
+## ML Models
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -22,10 +42,10 @@ from sklearn.neighbors import KNeighborsClassifier
 
 from sklearn.naive_bayes import GaussianNB
 
-# Title
+## Title
 st.title("🎓 Student Placement Prediction")
 
-# ---- DATA GENERATION ----
+## ---- DATA GENERATION ----
 np.random.seed(42)
 n = 1000
 
@@ -33,7 +53,7 @@ cgpa = np.round(np.random.uniform(5.0, 10.0, n), 2)
 skills = np.random.randint(1, 10, n)  # skill rating
 internships = np.random.randint(0, 5, n)
 
-# Rule-based target
+## Rule-based target
 placed = ((cgpa > 7.0) & (skills > 5) | (internships >= 2)).astype(int)
 
 df = pd.DataFrame({
@@ -43,7 +63,7 @@ df = pd.DataFrame({
     "placed": placed
 })
 
-# Split
+# #Split
 X = df.drop("placed", axis=1)
 y = df["placed"]
 
@@ -60,7 +80,7 @@ model_name = st.selectbox("Choose Model", [
     "Gradient Boosting"
 ])
 
-# Initialize model
+## Initialize model
 if model_name == "Logistic Regression":
     model = LogisticRegression()
 elif model_name == "Decision Tree":
@@ -76,16 +96,16 @@ elif model_name == "Naive Bayes":
 elif model_name == "Gradient Boosting":
     model = GradientBoostingClassifier()
 
-# Train
+## Train
 model.fit(X_train, y_train)
 
-# Accuracy
+## Accuracy
 y_pred = model.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 
 st.write(f"### Model Accuracy: {acc:.2f}")
 
-# ---- USER INPUT ----
+##---- USER INPUT ----
 st.subheader("Enter Student Details")
 
 cgpa_input = st.slider("CGPA", 5.0, 10.0, 7.0)
@@ -101,6 +121,13 @@ if prediction[0] == 1:
         st.balloons()
 else:
         st.error(" Student is Not Likely to be Placed")
+
+
+## output
+
+<img width="1861" height="936" alt="image" src="https://github.com/user-attachments/assets/9967c00d-371f-4094-91b1-2bbac1da97f5" />
+
+
 
 
 
