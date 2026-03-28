@@ -119,7 +119,7 @@ internships_input = st.slider("Internships", 0, 5, 1)
 # Prediction
 
 if st.button("Predict Placement"):
-    user_data = np.array([[cgpa_input, skills_input, internships_input]])
+ user_data = np.array([[cgpa_input, skills_input, internships_input]])
     prediction = model.predict(user_data)
 if prediction[0] == 1:
         st.success(" Student is Likely to be Placed")
