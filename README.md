@@ -52,7 +52,9 @@ np.random.seed(42)
 n = 1000
 
 cgpa = np.round(np.random.uniform(5.0, 10.0, n), 2)
+
 skills = np.random.randint(1, 10, n)  # skill rating
+
 internships = np.random.randint(0, 5, n)
 
 ## Rule-based target
