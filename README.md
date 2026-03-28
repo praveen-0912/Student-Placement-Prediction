@@ -47,7 +47,7 @@ from sklearn.naive_bayes import GaussianNB
 ## Title
 st.title("🎓 Student Placement Prediction")
 
-## ---- DATA GENERATION ----
+##  DATA GENERATION 
 np.random.seed(42)
 n = 1000
 
@@ -71,7 +71,7 @@ y = df["placed"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# ---- MODEL SELECTION ----
+# MODEL SELECTION 
 model_name = st.selectbox("Choose Model", [
     "Logistic Regression",
     "Decision Tree",
@@ -107,7 +107,7 @@ acc = accuracy_score(y_test, y_pred)
 
 st.write(f"### Model Accuracy: {acc:.2f}")
 
-##---- USER INPUT ----
+## USER INPUT 
 st.subheader("Enter Student Details")
 
 cgpa_input = st.slider("CGPA", 5.0, 10.0, 7.0)
