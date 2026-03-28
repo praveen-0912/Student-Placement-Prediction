@@ -29,6 +29,7 @@ import pandas as pd
 
 ## ML Models
 from sklearn.model_selection import train_test_split
+
 from sklearn.metrics import accuracy_score
 
 from sklearn.linear_model import LogisticRegression
@@ -36,6 +37,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+
 from sklearn.svm import SVC
 
 from sklearn.neighbors import KNeighborsClassifier
